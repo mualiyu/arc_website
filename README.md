@@ -1,1 +1,1 @@
-# arc_website
+# Ahmadu Ribadu College, Yola

@@ -31,7 +31,7 @@
                             <img src="/admin_assets/assets/images/favicon.png" alt="wrapkit">
                         </div>
                         <h2 class="mt-3 text-center">Sign In</h2>
-                        <p class="text-center">Enter your email address and password to access admin panel.</p>
+                        <p class="text-center">Enter your username and password to access admin panel.</p>
                         <?php
                         if(isset($_SESSION["errorMessage"])) {
                             ?>
