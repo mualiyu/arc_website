@@ -210,41 +210,47 @@ $router->addRoute('POST', '/admin/register/user', function () {
         exit;
     }
 
-    // print_r($_REQUEST);
-
     require(__DIR__."/include/config.php");
 
-    if (isset($_REQUEST['username'])) {
-        $name    = stripslashes($_REQUEST['name']);
-        $name    = mysqli_real_escape_string($con, $name);
-        
-        $email    = stripslashes($_REQUEST['email']);
-        $email    = mysqli_real_escape_string($con, $email);
-
-        $username = stripslashes($_REQUEST['username']);
-        $username = mysqli_real_escape_string($con, $username);
-
-        $phone    = stripslashes($_REQUEST['phone']);
-        $phone    = mysqli_real_escape_string($con, $phone);
-
-        $password = stripslashes($_REQUEST['password']);
-        $password = mysqli_real_escape_string($con, $password);
-
-        $query = "INSERT into `users` (name, email, username, phone, password)
-                     VALUES ('$name', '$email', '$username', '$phone', '" .password_hash($password, PASSWORD_DEFAULT). "')";
-        $result = mysqli_query($con, $query);
-
-        if ($result) {
-            $_SESSION["message"] = "New user is created! Thank you.";
-            header("Location: /admin/register/user");
-        } else {
-            $_SESSION["message"] = "Failed!!! Try Again.";
+    
+    if (empty($_REQUEST['name']) || empty($_REQUEST['username']) || empty($_REQUEST['email']) || empty($_REQUEST['phone']) || empty($_REQUEST['password'])) {
+        // print_r($_REQUEST);
+        $_SESSION["message"] = "Failed. Try Again, Make sure all fields have been passed. Thank you!!!";
+        header("Location: /admin/register/user");
+    }else{
+        if (isset($_REQUEST['username'])) {
+            $name    = stripslashes($_REQUEST['name']);
+            $name    = mysqli_real_escape_string($con, $name);
+            
+            $email    = stripslashes($_REQUEST['email']);
+            $email    = mysqli_real_escape_string($con, $email);
+    
+            $username = stripslashes($_REQUEST['username']);
+            $username = mysqli_real_escape_string($con, $username);
+    
+            $phone    = stripslashes($_REQUEST['phone']);
+            $phone    = mysqli_real_escape_string($con, $phone);
+    
+            $password = stripslashes($_REQUEST['password']);
+            $password = mysqli_real_escape_string($con, $password);
+    
+            $query = "INSERT into `users` (name, email, username, phone, password)
+                         VALUES ('$name', '$email', '$username', '$phone', '" .password_hash($password, PASSWORD_DEFAULT). "')";
+            $result = mysqli_query($con, $query);
+    
+            if ($result) {
+                $_SESSION["message"] = "New user is created! Thank you.";
+                header("Location: /admin/register/user");
+            } else {
+                $_SESSION["message"] = "Failed!!! Try Again.";
+                header("Location: /admin/register/user");
+            }
+        }else{
+            $_SESSION["message"] = "Failed. Try Again, Make sure all data has been passed. Thank you!!!";
             header("Location: /admin/register/user");
         }
-    }else{
-        $_SESSION["message"] = "Failed. Try Again, Make sure all data has been passed. Thank you!!!";
-        header("Location: /admin/register/user");
     }
+
     exit;
 });
 

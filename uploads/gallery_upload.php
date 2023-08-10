@@ -8,8 +8,11 @@ if (!isset($_SESSION['loggedin'])) {
 
 require(__DIR__."/../include/config.php");
 
-
-
+if (empty($_REQUEST['description']) || !isset($_FILES['image'])) {
+    // print_r($_REQUEST);
+    $_SESSION["errorMessage"] = "Failed. Try Again, Make sure all fields have been passed. Thank you!!!";
+    header("Location: /admin/galleries/add");
+}else{
     if(isset($_FILES['image'])){
         $file_name = $_FILES['image']['name'];
         $file_size =$_FILES['image']['size'];
@@ -55,6 +58,7 @@ require(__DIR__."/../include/config.php");
        $_SESSION["errorMessage"] = "Image is not uploaded.";
        header("Location: /admin/galleries/add");
     }
+}
 
 
 

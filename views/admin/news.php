@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-5 align-self-center">
                     <div class="customize-input float-end">
-                            <a href="/admin/ne/add" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius"> Add </a>
+                            <a href="/admin/news/add" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius"> Add </a>
                         </div>
                     </div>
                 </div>

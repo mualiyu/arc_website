@@ -46,27 +46,27 @@
                                     <form class="mt-4" action="/admin/register/user" method="POST">
                                         <div class="form-group mt-2 mb-1">
                                             <label for="">Name</label>
-                                            <input name="name" type="text" require class="form-control">
+                                            <input name="name" type="text" required class="form-control">
                                         </div>
 
                                         <div class="form-group mt-2 mb-1">
                                             <label for="">Email</label>
-                                            <input name="email" type="email" require class="form-control">
+                                            <input name="email" type="email" required class="form-control">
                                         </div>
 
                                         <div class="form-group mt-2 mb-1">
                                             <label for="">UserName</label>
-                                            <input name="username" type="text" require class="form-control">
+                                            <input name="username" type="text" required class="form-control">
                                         </div>
 
                                         <div class="form-group mt-2 mb-1">
                                             <label for="">Phone</label>
-                                            <input name="phone" type="text" require class="form-control">
+                                            <input name="phone" type="text" required class="form-control">
                                         </div>
 
                                         <div class="form-group mt-2 mb-1">
                                             <label for="">Password</label>
-                                            <input name="password" type="password" require class="form-control">
+                                            <input name="password" type="password" required class="form-control">
                                         </div>
 
                                         <button class="btn btn-primary mt-3" type="submit">Submit</button>
